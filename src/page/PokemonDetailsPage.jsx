@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Header from "../component/Header";
 
-function PokemonDetailPage() {
+function PokemonDetailsPage() {
   const pokemons = [
     {
       id: 1,
@@ -68,21 +68,24 @@ function PokemonDetailPage() {
     },
   ];
 
-  const { pokemonId } = useParams();
+  // récup l'id dans l'url
+  // trouve le pokemon qui a le même id que celui de l'url
 
-  const pokemonToDisplay = pokemons.find((pokemon) => {
-    return pokemon.id == pokemonId;
+  const { id } = useParams();
+
+  const pokemonFound = pokemons.find((pokemon) => {
+    return pokemon.id == id;
   });
 
   return (
     <>
       <Header />
-      <h1>Détail du pokemon : </h1>
-
-      <h2>{pokemonToDisplay.name}</h2>
-      <img src={pokemonToDisplay.img} alt={pokemonToDisplay.name} />
+      <main>
+        <h1>{pokemonFound.name}</h1>
+        <img src={pokemonFound.img} alt={pokemonFound.name} />
+      </main>
     </>
   );
 }
 
-export default PokemonDetailPage;
+export default PokemonDetailsPage;

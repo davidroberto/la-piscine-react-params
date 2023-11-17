@@ -76,7 +76,7 @@ function PokemonsTeam() {
       <h1>Que des numéros dans ma team :</h1>
       {pokemonsInTeam.map((pokemon) => {
         return (
-          <Link to={"/pokemons/" + pokemon.id + "/details"}>
+          <Link to={`/pokemons/${pokemon.id}/details`}>
             <article>
               <h2>{pokemon.name}</h2>
               <img src={pokemon.img} alt={pokemon.name} />
